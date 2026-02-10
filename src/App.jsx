@@ -1,12 +1,13 @@
 import { useState } from 'react'
 import './App.css'
+import './style/stylesheet.css'
 
 function App() {
   //Handle liste med useState
   const [items, setItems] = useState([
     {id : 1, name: "Mjølk", count: 1, bought: true},
     {id : 2, name: "Kaku", count: 1, bought: false},
-    {id : 3, name: "OSt", count: 1, bought: false}
+    {id : 3, name: "Ost", count: 1, bought: false}
   ])
   
   //States som skal manipulere name og count
@@ -66,30 +67,20 @@ function removeBoughtItems(){
 
   return (
       <main>
-      <h1>Handleliste</h1>
-
+        <h1>Handleliste</h1>
       {/* Dette blir AddForm.jsx senere */}
       <form onSubmit={addItem}>
         <label>
-          Vare:
-          <input
-            type="text"
-            value={name}
-            onChange={e => setName(e.target.value)}
-          />
+          <h3>Vare</h3>
+          <input type="text" placeholder="Egg..." value={name} onChange={e => setName(e.target.value)}/>
         </label>
 
         <label>
-          Antall:
-          <input
-            type="number"
-            min="1"
-            value={count}
-            onChange={e => setCount(e.target.value)}
-          />
+          <h3>Antall</h3>
+          <input type="number" placeholder="Antall..." min="1" value={count} onChange={e => setCount(e.target.value)}/>
         </label>
 
-        <button type="submit">Legg til</button>
+        <button type="submit">Legg til vare</button>
 
         {error && <p>{error}</p>}
       </form>
@@ -101,22 +92,11 @@ function removeBoughtItems(){
           {items.map(item => (
             <li key={item.id}>
               <label>
-                <input
-                  type="checkbox"
-                  checked={item.bought}
-                  onChange={() => toggleBought(item.id)}
-                />
+                <input type="checkbox" checked={item.bought} onChange={() => toggleBought(item.id)}/>
                 {item.name}
               </label>
 
-              <input
-                type="number"
-                min="1"
-                value={item.count}
-                onChange={e =>
-                  updateCount(item.id, Number(e.target.value))
-                }
-              />
+              <input type="number" min="1" value={item.count} onChange={e => updateCount(item.id, Number(e.target.value))}/>
             </li>
           ))}
         </ul>
