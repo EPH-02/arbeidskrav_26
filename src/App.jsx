@@ -1,6 +1,9 @@
 import { useState } from 'react'
 import './App.css'
 import './style/stylesheet.css'
+import './components/AddForm.jsx'
+import './components/ShoppingList.jsx'
+import './components/ShoppingItem.jsx'
 
 function App() {
   //Handle liste med useState
