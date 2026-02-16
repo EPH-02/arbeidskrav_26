@@ -3,7 +3,8 @@ import './App.css'
 import './style/stylesheet.css'
 import './components/AddForm.jsx'
 import './components/ShoppingList.jsx'
-import './components/ShoppingItem.jsx'
+import AddForm from './components/AddForm.jsx'
+import ShoppingList from './components/ShoppingList.jsx'
 
 function App() {
   //Handle liste med useState
@@ -71,41 +72,11 @@ function removeBoughtItems(){
   return (
       <main>
         <h1>Handleliste</h1>
-      {/* Dette blir AddForm.jsx senere */}
-      <form onSubmit={addItem}>
-        <label>
-          <h3>Vare</h3>
-          <input type="text" placeholder="Egg..." value={name} onChange={e => setName(e.target.value)}/>
-        </label>
+      {/* Her er selve input feltet */}
+      <AddForm name={name} setName={setName} count={count} setCount={setCount} error={error} addItem={addItem}/>
 
-        <label>
-          <h3>Antall</h3>
-          <input type="number" placeholder="Antall..." min="1" value={count} onChange={e => setCount(e.target.value)}/>
-        </label>
-
-        <button type="submit">Legg til vare</button>
-
-        {error && <p>{error}</p>}
-      </form>
-
-      {/* Dette blir ShoppingList.jsx + ShoppingItem.jsx */}
-      <section>
-        <h2>Varer</h2>
-        <ul>
-          {items.map(item => (
-            <li key={item.id}>
-              <label>
-                <input type="checkbox" checked={item.bought} onChange={() => toggleBought(item.id)}/>
-                {item.name}
-              </label>
-
-              <input type="number" min="1" value={item.count} onChange={e => updateCount(item.id, Number(e.target.value))}/>
-            </li>
-          ))}
-        </ul>
-
-        <button onClick={removeBoughtItems}>Fjern merkede varer </button>
-      </section>
+      {/* Her er listen som tar imot input fra AddForm og ShoppingItem */}
+      <ShoppingList items={items} toggleBought={toggleBought} updateCount={updateCount} removeBoughtItems={removeBoughtItems} />
     </main>
   )
 }
