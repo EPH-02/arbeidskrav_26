@@ -3,7 +3,7 @@
 export default function AddForm({ name, setName, count, setCount, error, addItem}) {
     return(
         <form onSubmit={addItem}>
-        <label>
+        <label> 
           <h3>Vare</h3>
           <input type="text" placeholder="Egg..." value={name} onChange={e => setName(e.target.value)}/>
         </label>

@@ -14,3 +14,8 @@ The React Compiler is not enabled on this template because of its impact on dev 
 ## Expanding the ESLint configuration
 
 If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+
+
+## Handlinger for å skjøre npm run dev
+"npm install" trengs ved at man selecter mappen prosjektet ligger i, deretter taster man inn koden i integrated terminal. Se at man er i riktig mappe før man kjører kommandoen. 
+Dersom man er på window og det ikke går, kjører man denne komnmandoen i terminalen "powershell.exe -executionpolicy bypass". Etter at det er gjort kan man taste inn "npm run dev" og kjøre den. 
