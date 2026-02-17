@@ -7,7 +7,7 @@ import AddForm from './components/AddForm.jsx'
 import ShoppingList from './components/ShoppingList.jsx'
 
 function App() {
-  //Handle liste med useState
+  //Handle liste med useState og noen varer for kravspesifikasjonen
   const [items, setItems] = useState([
     {id : 1, name: "Mjølk", count: 1, bought: true},
     {id : 2, name: "Kaku", count: 1, bought: false},
@@ -35,14 +35,14 @@ function App() {
 
     //Laget ny vare
     const newItem = {
-      id: Date.now(),
+      id: Date.now(), //Bruker dato for å lage en unik id. Kunne brukt math.random()
       name,
-      count: Number(count),
+      count: Number(count), //Sørger for at count er et tall, ikke en string
       bought: false
     }
 
     //Legger til ny item øverst i listen
-    setItems(prev => [newItem, ...prev])
+    setItems(prev => [newItem, ...prev]) //Tømmer input feltene og error melding etter submit
     setName("")
     setCount("")
     setError("")
@@ -52,21 +52,21 @@ function App() {
   function toggleBought(id) {
   setItems(prev =>
     prev.map(item =>
-      item.id === id ? { ...item, bought: !item.bought } : item
+      item.id === id ? { ...item, bought: !item.bought } : item //Dersom id matcher, toggler bought, ellers returnerer item som det er 
     )
   );
 }
 
 //Fjerner merkede varer fra listen 
 function removeBoughtItems(){
-  setItems(prev => prev.filter(item => !item.bought))
+  setItems(prev => prev.filter(item => !item.bought)) //Fjerner alle varer som er bought: true
 }
 
   //Funksjon som skal hindre 0 eller negative tall i count 
   function updateCount(id, newCount){
     if (newCount < 1) return
 
-    setItems(prev => prev.map(item => item.id === id ? {...item, count: newCount} : item))
+    setItems(prev => prev.map(item => item.id === id ? {...item, count: newCount} : item)) //Om id matcher, oppdaterer count, ellers returnerer item som det er
   }
 
   return (
@@ -75,8 +75,8 @@ function removeBoughtItems(){
       {/* Her er selve input feltet */}
       <AddForm name={name} setName={setName} count={count} setCount={setCount} error={error} addItem={addItem}/>
 
-      {/* Her er listen som tar imot input fra AddForm og ShoppingItem */}
-      <ShoppingList items={items} toggleBought={toggleBought} updateCount={updateCount} removeBoughtItems={removeBoughtItems} />
+      {/* Her er listen som tar imot input fra AddForm og ShoppingItem + ShoppingItem */}
+      <ShoppingList items={items} toggleBought={toggleBought} updateCount={updateCount} removeBoughtItems={removeBoughtItems} /> 
     </main>
   )
 }
