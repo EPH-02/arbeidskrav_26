@@ -35,7 +35,7 @@ function App() {
 
     //Laget ny vare
     const newItem = {
-      id: Date.now(), //Bruker dato for å lage en unik id. Kunne brukt math.random()
+      id: Date.now(), //Bruker dato for å lage en unik id. Kunne brukt math.random() https://www.w3schools.com/jsref/jsref_now.asp
       name,
       count: Number(count), //Sørger for at count er et tall, ikke en string
       bought: false
@@ -54,7 +54,7 @@ function App() {
     prev.map(item =>
       item.id === id ? { ...item, bought: !item.bought } : item //Dersom id matcher, toggler bought, ellers returnerer item som det er 
     )
-  );
+  )
 }
 
   //Fjerner merkede varer fra listen 
@@ -72,10 +72,10 @@ function App() {
   return (//Return tilhører App funksjonen
       <main>
         <h1>Handleliste</h1>
-      {/* Her er selve input feltet */}
+      {/* Her er selve input feltet https://www.w3schools.com/react/react_props.asp */}
       <AddForm name={name} setName={setName} count={count} setCount={setCount} error={error} addItem={addItem}/>
 
-      {/* Her er listen som tar imot input fra AddForm og ShoppingItem + ShoppingItem */}
+      {/* Her er listen som tar imot input fra AddForm og ShoppingItem + ShoppingItem https://www.w3schools.com/react/react_props.asp */}
       <ShoppingList items={items} toggleBought={toggleBought} updateCount={updateCount} removeBoughtItems={removeBoughtItems} /> 
     </main>
   )
