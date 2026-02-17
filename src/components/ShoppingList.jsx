@@ -6,7 +6,7 @@ export default function ShoppingList( {items, toggleBought, updateCount, removeB
         <section>
         <h2>Varer</h2>
         <ul>
-          //Mapper gjennom items og sender hver item til ShoppingItem komponenten
+          {/* Mapper gjennom items og sender hver item til ShoppingItem komponenten */}
           {items.map(item => (<ShoppingItem key={item.id} item={item} toggleBought={toggleBought} updateCount={updateCount}/>))}
         </ul>
 
