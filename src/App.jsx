@@ -57,10 +57,10 @@ function App() {
   );
 }
 
-//Fjerner merkede varer fra listen 
-function removeBoughtItems(){
-  setItems(prev => prev.filter(item => !item.bought)) //Fjerner alle varer som er bought: true
-}
+  //Fjerner merkede varer fra listen 
+  function removeBoughtItems(){
+    setItems(prev => prev.filter(item => !item.bought)) //Fjerner alle varer som er bought: true
+  }
 
   //Funksjon som skal hindre 0 eller negative tall i count 
   function updateCount(id, newCount){
@@ -69,7 +69,7 @@ function removeBoughtItems(){
     setItems(prev => prev.map(item => item.id === id ? {...item, count: newCount} : item)) //Om id matcher, oppdaterer count, ellers returnerer item som det er
   }
 
-  return (
+  return (//Return tilhører App funksjonen
       <main>
         <h1>Handleliste</h1>
       {/* Her er selve input feltet */}
