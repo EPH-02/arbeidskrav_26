@@ -15,7 +15,7 @@ export default function AddForm({ name, setName, count, setCount, error, addItem
           <input type="number" placeholder="Antall..." min="1" value={count} onChange={e => setCount(e.target.value)}/>
         </label>
 
-        <button type="submit">Legg til vare</button>
+        <button id='addButton' type="submit">Legg til vare</button>
 
         {/* Viser error melding dersom name eller count ikker er fylt ut */}
         {error && <p>{error}</p>}
