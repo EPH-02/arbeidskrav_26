@@ -71,7 +71,10 @@ function App() {
 
   return (//Return tilhører App funksjonen
       <main>
-        <h1>Handleliste</h1>
+        <header>
+            <h1>Handleliste</h1>
+        </header>
+
       {/* Her er selve input feltet https://www.w3schools.com/react/react_props.asp */}
       <AddForm name={name} setName={setName} count={count} setCount={setCount} error={error} addItem={addItem}/>
 

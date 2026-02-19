@@ -2,6 +2,7 @@
 //Her ligger det html struktur for input feltet, og funksjonen addItem som tar imot input og legger det til i handlelisten i App.jsx
 export default function AddForm({ name, setName, count, setCount, error, addItem}) {
     return(
+      <section>
         <form onSubmit={addItem}>
         <label> 
           <h3>Vare</h3>
@@ -20,5 +21,6 @@ export default function AddForm({ name, setName, count, setCount, error, addItem
         {/* Viser error melding dersom name eller count ikker er fylt ut */}
         {error && <p>{error}</p>}
       </form>
+      </section>
     )
 }

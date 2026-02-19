@@ -59,10 +59,8 @@ form {
 section {
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
     max-width: 100%;
     margin: 1rem;
-    align-items: center;
 
     ul {
         display: flex;
